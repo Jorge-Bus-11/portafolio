@@ -1,10 +1,69 @@
-<div class="flex items-center ">
-<span class="relative inline-flex overflow-hidden rounded-full p-[1px]">
-  <span
-    class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#51E4B8_0%,#21554E_50%,#51E4B8_100%)]"
-  ></span>
-  <div class="inline-flex items-center justify-center w-full px-3 py-1 text-sm text-green-800 bg-green-100 rounded-full cursor-pointer dark:bg-gray-800 dark:text-white/80 backdrop-blur-3xl whitespace-nowrap">
-    <slot />
-  </div>
-</span>
+<div class="status-wrapper">
+  <span class="status-badge">
+    <span class="status-spinner"></span>
+    <div class="status-content">
+      <slot />
+    </div>
+  </span>
 </div>
+
+<style is:global>
+  .status-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .status-badge {
+    position: relative;
+    display: inline-flex;
+    overflow: hidden;
+    border-radius: 9999px;
+    padding: 1px;
+  }
+
+  .status-spinner {
+    position: absolute;
+    top: -1000%;
+    right: -1000%;
+    bottom: -1000%;
+    left: -1000%;
+    background: conic-gradient(
+      from 90deg at 50% 50%,
+      #51E4B8 0%,
+      #21554E 50%,
+      #51E4B8 100%
+    );
+    animation: spin 2s linear infinite;
+  }
+
+  .status-content {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.25rem 0.75rem; /* px-3 py-1 */
+    font-size: 0.875rem; /* text-sm */
+    color: #166534; /* text-green-800 */
+    background-color: #dcfce7; /* bg-green-100 */
+    border-radius: 9999px;
+    cursor: pointer;
+    backdrop-filter: blur(24px); /* backdrop-blur-3xl */
+    white-space: nowrap;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .status-content {
+      background-color: #1f2937; /* dark:bg-gray-800 */
+      color: rgba(255, 255, 255, 0.8); /* dark:text-white/80 */
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>

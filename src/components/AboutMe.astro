@@ -1,11 +1,9 @@
 ---
- const personalImageAlt = "Miguel Ángel"
+const personalImageAlt = "Jorge Bustamante";
 ---
 
-<article class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row">
-  <div
-    class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
-  >
+<article class="profile-article">
+  <div class="profile-text">
     <p>
       Me llamo Miguel Ángel pero mis amigos me llaman midu. Empecé en la
       programación con un Amstrad, tenía 10 años. Actualmente estoy <strong
@@ -24,56 +22,92 @@
     <p>
       Como creador de contenido, <strong
         >cuento con el canal de habla hispana más visto del mundo en la
-        categoría de <em class="italic">Software & Game Development</em> en Twitch</strong
+        categoría de <em>Software & Game Development</em> en Twitch</strong
       >. Mi objetivo es mejorar la empleabilidad de la comunidad hispana y el
       acceso a contenido de calidad.
     </p>
   </div>
 
-  <img width="200" height="200" src="/me.png" alt={personalImageAlt} class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20 " style="object-position: 50% 50%">
-
+  <img
+    src="/me.png"
+    width="200"
+    height="200"
+    alt={personalImageAlt}
+    class="profile-image"
+    style="object-position: 50% 50%;"
+  />
 </article>
 
-<!-- FRASES PROHIBIDAS EN VUESTRO PORTFOLIO
+<style is:global>
+  .profile-article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem; /* equivalente a gap-8 */
+    color: #8d9cb5; /* gris oscuro */
+  }
+p {
+   color: #d1d5db; 
+}
+  @media (prefers-color-scheme: dark) {
+    .profile-article {
+      color: #d1d5db; /* gris claro */
+    }
+  }
 
-<p>
-  Mi sueño es encontrar mi primer empleo en el mundo de la programación. Una empresa donde pueda seguir aprendiendo. ❌
-</p>
+  .profile-text {
+    order: 2;
+  }
 
-<p>
-  ❌ Apasionado de la programación desde chekitito. Me encantan los ordenadores y crear páginas web buenas y rápidas con la última tecnología.
-</p>
+  @media (min-width: 768px) {
+    .profile-article {
+      flex-direction: row;
+    }
+    .profile-text {
+      order: 1;
+    }
+  }
 
-<p>
-  Trabajo bien en equipo. Siempre estoy aprendiendo cosas nuevas.
-</p>
+  .profile-text p {
+    margin-bottom: 1rem;
+  }
 
--------------------------------------
+  .profile-text p strong {
+    color: #facc15; /* amarillo */
+    font-weight: normal;
+    font-family: monospace;
+  }
 
---------------------------------------
+  @media (prefers-color-scheme: dark) {
+    .profile-text p strong {
+      color: #fef08a; /* amarillo claro */
+    }
+  }
 
-<p>
-  ¡Soy Leo! Estudié Derecho Empresarial y, tras años ejerciendo, me pasé al mundo de la Programación. Desde entonces disfruto creando experiencias web para los usuarios.
-</p>
+  .profile-image {
+    order: 1;
+    width: 16rem; /* w-64 */
+    height: 16rem; /* h-full / aspect-square */
+    padding: 0.25rem; /* p-1 */
+    object-fit: cover;
+    border-radius: 1rem; /* rounded-2xl */
+    background-color: rgba(205, 114, 114, 0.2);
+    border: 1px solid rgba(215, 128, 128, 0.7); /* ring-1 ring-black/70 */
+    transform: rotate(3deg);
+  }
 
-<p>
-  Entre mis éxitos destaco que durante el Grado Superior, ayudé a mis compañeros a aprender sobre TDD. Me encanta el testing, creo en su importancia, y me gusta compartir mi conocimiento sobre ello.
-</p>
+  @media (prefers-color-scheme: dark) {
+    .profile-image {
+      background-color: rgba(232, 226, 201, 0.05); /* amarillo translúcido */
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+  }
 
-<p>
-  Cuento con experiencia desarrollando aplicaciones móviles, y he creado una iniciativa llamada X para mezclar mis dos pasiones: la programación y el derecho. Ayudando a la sociedad a acceso a una defensa justa.
-</p>
-
----------------------------------------
-
-<p>Me llamo Sara, tengo 25 años y soy de Santiago, Chile 🇨🇱. Terminé mis estudios como Desarrolladora Web. Me encanta enfocarme en la parte del rendimiento, para ofrecer la mejora experiencia al usuario.</p>
-
-<p>
-  Colaboro en la organización del MeetUp local BeerJS donde reunimos a desarrolladores de Santiago para compartir conocimiento y experiencias. El año 2023 hicimos un total de 25 charlas con más de 2000 asistentes.
-</p>
-
-<p>
-  Además de participar activamente en la comunidad, he participado en la Hackathon de Midudev quedando en 3er puesto con mi proyecto _Chatty_, donde usando IA podías interactuar con un PDF. ¡Échale un vistazo!
-</p>
-
--->
+  @media (min-width: 1024px) {
+    .profile-image {
+      width: 16rem; /* lg:w-64 */
+      padding: 0.5rem; /* lg:p-2 */
+    }
+  }
+</style>

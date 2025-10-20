@@ -1,15 +1,15 @@
 ---
-const personalImageAlt = "Miguel Ángel"
-import Badge from "@/components/Badge.astro"
-import LinkedInIcon from "@/components/icons/LinkedIn.astro"
-import MailIcon from "@/components/icons/Mail.astro"
-import SocialPill from "@/components/SocialPill.astro"
+const personalImageAlt = "Miguel Ángel";
+import Badge from "@/components/Badge.astro";
+import LinkedInIcon from "@/components/icons/LinkedIn.astro";
+import MailIcon from "@/components/icons/Mail.astro";
+import SocialPill from "@/components/SocialPill.astro";
 ---
 
-<div class="max-w-xl">
-  <div class="flex gap-4 mb-4">
+<div class="profile-container">
+  <div class="profile-header">
     <img
-      class="rounded-full shadow-lg size-16"
+      class="profile-avatar"
       src="/midudev.webp"
       alt={personalImageAlt}
     />
@@ -17,32 +17,106 @@ import SocialPill from "@/components/SocialPill.astro"
       href="https://linkedin.com/in/midudev"
       target="_blank"
       rel="noopener"
-      class="flex items-center transition md:justify-center md:hover:scale-105"
+      class="profile-badge-link"
     >
       <Badge>Disponible para trabajar</Badge>
     </a>
   </div>
-  <h1
-    class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
-  >
-    Hey, soy midudev
-  </h1>
-  <p
-    class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
-  >
-    +15 años de experiencia. <strong
-      >Ingeniero de Software y Creador de Contenido sobre Programación</strong
-    > de Barcelona, España 🇪🇸. Especializado en el desarrollo de aplicaciones web
-    únicas.
+
+  <h1 class="profile-name">Hey, soy midudev</h1>
+
+  <p class="profile-description">
+    +15 años de experiencia. <strong>Ingeniero de Software y Creador de Contenido sobre Programación</strong> de Barcelona, España 🇪🇸. Especializado en el desarrollo de aplicaciones web únicas.
   </p>
-  <nav class="flex flex-wrap gap-4 mt-8">
+
+  <nav class="profile-socials">
     <SocialPill href="mailto:miduga@gmail.com">
-      <MailIcon class="size-4" />
+      <MailIcon class="icon" />
       Contáctame
     </SocialPill>
     <SocialPill href="https://linkedin.com/in/midudev">
-      <LinkedInIcon class="size-4" />
+      <LinkedInIcon class="icon" />
       LinkedIn
     </SocialPill>
   </nav>
 </div>
+
+<style is:global>
+  .profile-container {
+    max-width: 36rem; /* max-w-xl */
+  }
+
+  .profile-header {
+    display: flex;
+    gap: 1rem; /* gap-4 */
+    margin-bottom: 1rem; /* mb-4 */
+    align-items: center;
+  }
+
+  .profile-avatar {
+    border-radius: 9999px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    width: 4rem; /* size-16 ≈ 64px */
+    height: 4rem;
+    object-fit: cover;
+  }
+
+  .profile-badge-link {
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .profile-badge-link:hover {
+    transform: scale(1.05);
+  }
+
+  .profile-name {
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: 700;
+    letter-spacing: -0.025em; /* tracking-tight */
+    color: #1f2937; /* gray-800 */
+    margin: 0;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .profile-name {
+      color: white;
+    }
+  }
+
+  .profile-description {
+    margin-top: 1.5rem; /* mt-6 */
+    font-size: 1.25rem; /* text-xl */
+    color: #1f2937;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .profile-description {
+      color: #d1d5db; /* gray-300 */
+    }
+  }
+
+  .profile-description strong {
+    color: #facc15; /* yellow-500 */
+    font-weight: 600;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .profile-description strong {
+      color: #fde68a; /* yellow-200 */
+    }
+  }
+
+  .profile-socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* gap-4 */
+    margin-top: 2rem; /* mt-8 */
+  }
+
+  .icon {
+    width: 1rem; /* size-4 ≈ 16px */
+    height: 1rem;
+  }
+</style>

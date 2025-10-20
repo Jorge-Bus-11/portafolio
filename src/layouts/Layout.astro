@@ -22,15 +22,11 @@ const { description, title } = Astro.props
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <ViewTransitions />
+ 
   </head>
 
-  <body class="relative text-black dark:text-white">
-    <div
-      class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
-      bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
-      dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
-    >
+  <body>
+    <div>
     </div>
     <Header />
     <slot />
@@ -53,29 +49,29 @@ const { description, title } = Astro.props
         overscroll-behavior: none;
       }
 
-      @media (prefers-reduced-motion: reduce) {
+       {
         html {
           scroll-behavior: auto;
         }
       }
 
-      @media (prefers-color-scheme: dark) {
+      
         body {
           color: rgba(255, 255, 255, 0.9);
         }
-      }
+      
 
-      #header-nav {
+      /* #header-nav {
         animation: blur linear both 0.5s;
         animation-timeline: scroll();
         animation-range: 0 500px;
-      }
+      } */
 
-      @keyframes blur {
+      /* @keyframes blur {
         to {
           backdrop-filter: blur(20px);
           border-width: 1px;
-          border-color: rgba(0, 0, 0);
+          border-color: rgb(235, 219, 219);
           padding: 0.25rem 0.75rem;
           display: flex;
           flex-direction: row;
@@ -83,9 +79,9 @@ const { description, title } = Astro.props
           background-color: rgb(229, 229, 229);
           border-radius: 9999px;
         }
-      }
+      } */
 
-      @media (prefers-color-scheme: dark) {
+      /* @media (prefers-color-scheme) {
         @keyframes blur {
           from {
             border: 0px;
@@ -109,7 +105,7 @@ const { description, title } = Astro.props
             border-radius: 9999px;
           }
         }
-      }
+      } */
     </style>
   </body>
 </html>
