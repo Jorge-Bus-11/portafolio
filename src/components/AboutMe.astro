@@ -1,5 +1,7 @@
 ---
 const personalImageAlt = "Jorge Bustamante";
+import Dark from '../assets/darkjorge.jpg';
+import { Image } from 'astro:assets';
 ---
 
 <article class="profile-article">
@@ -22,15 +24,13 @@ const personalImageAlt = "Jorge Bustamante";
       >. Mi objetivo es mejorar la empleabilidad de los que me rodean dándome cuenta de dónde estoy y la responsabilidad social que eso conlleva.
     </p>
   </div>
-
-  <img
-    src="/darkjorge.jpg"
-    width="200"
-    height="200"
-    alt={personalImageAlt}
-    class="profile-image"
-    style="object-position: 50% 50%;"
-  />
+  <Image  src={Dark}
+  width="200"
+  height="200"
+  alt={personalImageAlt}
+  class="profile-image"
+  style="object-position: 50% 50%;"/>
+ 
 </article>
 
 <style is:global>
